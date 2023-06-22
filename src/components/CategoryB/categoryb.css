@@ -1,0 +1,59 @@
+.category-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryb {
+    margin-top: 20px;
+}
+
+.categoryb>h2 {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+    color: #8039FD;
+}
+.price span{
+    font-size: 13px;
+}
+.category-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.category-title h2 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.category-title p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.category-body {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}

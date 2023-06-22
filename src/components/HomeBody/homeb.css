@@ -1,0 +1,41 @@
+
+.home-body-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.category {
+    height: 150px;
+    width: 100%;
+    background-image: url('../../assets/hot.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.category:nth-child(2) {
+    background-image: url('../../assets/salad.png');
+}
+
+.category:nth-child(3) {
+    background-image: url('../../assets/desert.png');
+}
+
+.category:nth-child(4) {
+    background-image: url('../../assets/brakefast.png');
+}
+
+.category h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: white;
+}

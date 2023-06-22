@@ -12,6 +12,7 @@
   scroll-behavior: smooth;
 }
 
+
 body {
   max-width: 400px;
   width: 100%;
@@ -20,13 +21,8 @@ body {
   color: white;
   scroll-behavior: smooth;
   margin: 0 auto;
-  height: -webkit-fill-available;
 }
 
-html {
-  height: -webkit-fill-available;
-
-}
 
 button {
   cursor: pointer;
@@ -52,13 +48,6 @@ img {
   width: 100%;
   margin: 0 auto;
   padding: 0px 20px;
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  height: -webkit-fill-available;
-
 }
 
 section {
