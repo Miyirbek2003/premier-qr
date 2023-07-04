@@ -26,9 +26,11 @@
     line-height: 30px;
     color: #8039FD;
 }
-.price span{
+
+.price span {
     font-size: 13px;
 }
+
 .category-text {
     display: flex;
     flex-direction: column;
@@ -56,4 +58,20 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+}
+
+.category-item .img {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 7px;
+    margin-bottom: 7px;
+}
+
+.category-item .img img {
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    image-rendering: pixelated;
+    height: 100%;
 }

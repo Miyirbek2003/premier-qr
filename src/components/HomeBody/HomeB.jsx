@@ -1,28 +1,28 @@
-import hot from "../../assets/hot.png";
-import salad from "../../assets/salad.png";
-import desert from "../../assets/desert.png";
-import brakefast from "../../assets/brakefast.png";
 import "./homeb.css";
-
 import { Link, useParams } from "react-router-dom";
-export default function HomeB() {
+import React from "react";
+export default function HomeB({ category }) {
   const { id } = useParams();
   return (
     <section className="homeb">
       <div className="btm"></div>
       <div className="home-body-inner">
-        <Link to={`/${id}/category/hot`} className="category">
-          <h2>Hot seald</h2>
-        </Link>
-        <Link to={`/${id}/category/salads`} className="category">
-          <h2>Salads</h2>
-        </Link>
-        <Link to={`/${id}/category/deserts`} className="category">
-          <h2>Deserts</h2>
-        </Link>
-        <Link to={`/${id}/category/brakefasts`} className="category">
-          <h2>Brakefasts</h2>
-        </Link>
+        {category?.map((cat) => (
+          <Link
+            key={cat.id}
+            to={`/category/${cat.id}`}
+            className="category"
+            style={{ backgroundImage: `url(${cat.img_url})` }}
+          >
+            <h2>
+              {
+                cat.translations.filter(
+                  (lang) => lang.locale == localStorage.getItem("lang")
+                )[0].name
+              }
+            </h2>
+          </Link>
+        ))}
       </div>
     </section>
   );

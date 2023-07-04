@@ -1,8 +1,19 @@
 import "./header.css";
 import { FaAngleDown } from "react-icons/fa";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setLangg } from "../../store/productsSlice";
 export default function Header() {
-  const [lang, setLang] = React.useState("Qaraqalpaqsha");
+  const [lang, setLang] = React.useState(
+    localStorage.getItem("lang") === "uz"
+      ? "O`zbek"
+      : localStorage.getItem("lang") === "qr"
+      ? "Qaraqalpaqsha"
+      : localStorage.getItem("lang") === "ru"
+      ? "Русский"
+      : localStorage.getItem("lang") === "en" && "English"
+  );
+  const dispatch = useDispatch();
   return (
     <header className="header">
       <div className="container">
@@ -21,6 +32,7 @@ export default function Header() {
                 const drop = document.querySelector(".drop");
                 drop.classList.toggle("active");
                 setLang("Qaraqalpaqsha");
+                dispatch(setLangg("qr"));
               }}
             >
               Qaraqalpaqsha
@@ -30,6 +42,7 @@ export default function Header() {
                 const drop = document.querySelector(".drop");
                 drop.classList.toggle("active");
                 setLang("English");
+                dispatch(setLangg("en"));
               }}
             >
               English
@@ -39,6 +52,7 @@ export default function Header() {
                 const drop = document.querySelector(".drop");
                 drop.classList.toggle("active");
                 setLang("O'zbek");
+                dispatch(setLangg("uz"));
               }}
             >
               O'zbek
@@ -48,6 +62,7 @@ export default function Header() {
                 const drop = document.querySelector(".drop");
                 drop.classList.toggle("active");
                 setLang("Русский");
+                dispatch(setLangg("ru"));
               }}
             >
               Русский

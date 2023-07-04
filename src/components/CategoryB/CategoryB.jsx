@@ -1,70 +1,50 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import img from "../../assets/category.png";
+import { getProducts } from "../../store/productsSlice";
+import { useParams } from "react-router-dom";
 import "./categoryb.css";
-export default function CategoryB() {
+
+export default function CategoryB({ products }) {
+  const { type } = useParams();
+  const { lang } = useSelector((state) => state.productsSlice);
+  console.log(lang);
+  console.log(lang);
+  console.log(products);
   return (
     <div className="categoryb">
-      <h2>Hot Seals</h2>
+      <h2></h2>
       <div className="category-card">
-        <div className="category-item">
-          <div className="img">
-            <img src={img} alt="" />
-          </div>
-          <div className="category-text">
-            <div className="category-title">
-              <h2>"Home Made" dumpling</h2>
-              <p>250g</p>
+        {products
+          ?.filter((item) => item.category_id == type)
+          .map((pr) => (
+            <div key={pr.id} className="category-item">
+              <div className="img">
+                <img src={`${pr.img_url}`} alt="" />
+              </div>
+              <div className="category-text">
+                <div className="category-title">
+                  <h2>
+                    {
+                      pr.translations.filter((langg) => langg.locale == lang)[0]
+                        ?.name
+                    }
+                  </h2>
+                  <span className="price">
+                    {pr.price} <span>swm</span>
+                  </span>
+                </div>
+                <div className="category-body">
+                  <p>
+                    {
+                      pr?.translations.filter((lang) => lang.locale == lang)[0]
+                        ?.description
+                    }
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="category-body">
-              <p>Vareniki with mashed potatoes and fried chanterelles</p>
-              <span className="price">35000 <span>swm</span></span>
-            </div>
-          </div>
-        </div>
-        <div className="category-item">
-          <div className="img">
-            <img src={img} alt="" />
-          </div>
-          <div className="category-text">
-            <div className="category-title">
-              <h2>"Home Made" dumpling</h2>
-              <p>250g</p>
-            </div>
-            <div className="category-body">
-              <p>Vareniki with mashed potatoes and fried chanterelles</p>
-              <span className="price">35000 <span>swm</span></span>
-            </div>
-          </div>
-        </div>
-        <div className="category-item">
-          <div className="img">
-            <img src={img} alt="" />
-          </div>
-          <div className="category-text">
-            <div className="category-title">
-              <h2>"Home Made" dumpling</h2>
-              <p>250g</p>
-            </div>
-            <div className="category-body">
-              <p>Vareniki with mashed potatoes and fried chanterelles</p>
-              <span className="price">35000 <span>swm</span></span>
-            </div>
-          </div>
-        </div>
-        <div className="category-item">
-          <div className="img">
-            <img src={img} alt="" />
-          </div>
-          <div className="category-text">
-            <div className="category-title">
-              <h2>"Home Made" dumpling</h2>
-              <p>250g</p>
-            </div>
-            <div className="category-body">
-              <p>Vareniki with mashed potatoes and fried chanterelles</p>
-              <span className="price">35000 <span>swm</span></span>
-            </div>
-          </div>
-        </div>
+          ))}
       </div>
     </div>
   );

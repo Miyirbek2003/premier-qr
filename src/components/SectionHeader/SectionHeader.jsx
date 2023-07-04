@@ -4,19 +4,23 @@ import check from "../../assets/check.svg";
 import wifi from "../../assets/wifi.svg";
 import phone from "../../assets/phone.svg";
 import map from "../../assets/map.svg";
+import { useSelector } from "react-redux";
 export default function SectionHeader() {
+  const { isAuth } = useSelector((state) => state.productsSlice);
   return (
     <div className="section-header">
-      <div className="buttons">
-        <button>
-          {" "}
-          <img src={off} alt="" /> Oficiant
-        </button>
-        <button>
-          {" "}
-          <img src={check} alt="" /> Check
-        </button>
-      </div>
+      {isAuth && (
+        <div className="buttons">
+          <button>
+            {" "}
+            <img src={off} alt="" /> Oficiant
+          </button>
+          <button>
+            {" "}
+            <img src={check} alt="" /> Check
+          </button>
+        </div>
+      )}
       <div className="infos">
         <div className="infos-top">
           <span>

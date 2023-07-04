@@ -1,4 +1,3 @@
-
 .home-body-inner {
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
 .category {
     height: 150px;
     width: 100%;
-    background-image: url('../../assets/hot.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -20,17 +18,7 @@
     border-radius: 16px;
 }
 
-.category:nth-child(2) {
-    background-image: url('../../assets/salad.png');
-}
 
-.category:nth-child(3) {
-    background-image: url('../../assets/desert.png');
-}
-
-.category:nth-child(4) {
-    background-image: url('../../assets/brakefast.png');
-}
 
 .category h2 {
     font-weight: 500;
