@@ -4,18 +4,46 @@ import check from "../../assets/check.svg";
 import wifi from "../../assets/wifi.svg";
 import phone from "../../assets/phone.svg";
 import map from "../../assets/map.svg";
+import axios from "axios";
 import { useSelector } from "react-redux";
 export default function SectionHeader() {
   const { isAuth } = useSelector((state) => state.productsSlice);
+  console.log(localStorage.getItem("client"));
   return (
     <div className="section-header">
       {isAuth && (
         <div className="buttons">
-          <button>
+          <button
+            onClick={() => {
+              fetch("https://qrmenu.dbc-server.uz/api/call?type=waiter", {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  uuid: localStorage.getItem("client"),
+                },
+                params: {
+                  type: "waiter",
+                },
+              });
+            }}
+          >
             {" "}
             <img src={off} alt="" /> Oficiant
           </button>
-          <button>
+          <button
+            onClick={() => {
+              fetch("https://qrmenu.dbc-server.uz/api/call?type=bill", {
+                method: "POST",
+                headers: {
+                  Accept: "application/json",
+                  uuid: localStorage.getItem("client"),
+                },
+                params: {
+                  type: "bill",
+                },
+              });
+            }}
+          >
             {" "}
             <img src={check} alt="" /> Check
           </button>

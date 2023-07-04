@@ -41,7 +41,6 @@ export const checkAuth = createAsyncThunk('productsSlice/checkAuth', async (_, {
         dispatch(setIsAuth(response.data.status))
     }
 
-    console.log(response);
     if (response.status === 404) {
         dispatch(setIsAuth(error.response.data.status))
     }
@@ -77,8 +76,7 @@ const productsSlice = createSlice({
             state.product = payload
         },
         setIsAuth: (state, { payload }) => {
-            localStorage.setItem('client', payload)
-            state.isAuth = localStorage.getItem('client')
+            state.isAuth = payload
         },
         setLangg: (state, { payload }) => {
             localStorage.setItem('lang', payload)
