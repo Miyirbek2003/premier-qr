@@ -8,9 +8,7 @@ import "./categoryb.css";
 export default function CategoryB({ products }) {
   const { type } = useParams();
   const { lang } = useSelector((state) => state.productsSlice);
-  console.log(lang);
-  console.log(lang);
-  console.log(products);
+
   return (
     <div className="categoryb">
       <h2></h2>
@@ -37,7 +35,7 @@ export default function CategoryB({ products }) {
                 <div className="category-body">
                   <p>
                     {
-                      pr?.translations.filter((lang) => lang.locale == lang)[0]
+                      pr.translations.filter((langg) => langg.locale == lang)[0]
                         ?.description
                     }
                   </p>

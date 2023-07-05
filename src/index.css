@@ -53,3 +53,8 @@ img {
 section {
   flex: 3;
 }
+
+
+#root{
+  position: relative;
+}

@@ -6,11 +6,21 @@ import phone from "../../assets/phone.svg";
 import map from "../../assets/map.svg";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Modal from "../Modal/Modal";
+import React from "react";
 export default function SectionHeader() {
-  const { isAuth } = useSelector((state) => state.productsSlice);
-  console.log(localStorage.getItem("client"));
+  const { isAuth, lang } = useSelector((state) => state.productsSlice);
+
+  const [modalOpen, setModalOpen] = React.useState(false);
+  if (modalOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+  }
   return (
     <div className="section-header">
+      {modalOpen && <Modal />}
+
       {isAuth && (
         <div className="buttons">
           <button
@@ -25,10 +35,21 @@ export default function SectionHeader() {
                   type: "waiter",
                 },
               });
+              setModalOpen(true);
+              setTimeout(() => {
+                setModalOpen(false);
+              }, 3000);
             }}
           >
             {" "}
-            <img src={off} alt="" /> Oficiant
+            <img src={off} alt="" />{" "}
+            {lang == "ru"
+              ? "Официант"
+              : lang == "uz"
+              ? "Ofisiant"
+              : lang == "qr"
+              ? "Oficiant"
+              : lang == "en" && "Waiter"}
           </button>
           <button
             onClick={() => {
@@ -42,10 +63,21 @@ export default function SectionHeader() {
                   type: "bill",
                 },
               });
+              setModalOpen(true);
+              setTimeout(() => {
+                setModalOpen(false);
+              }, 3000);
             }}
           >
             {" "}
-            <img src={check} alt="" /> Check
+            <img src={check} alt="" />{" "}
+            {lang == "ru"
+              ? "Счет"
+              : lang == "uz"
+              ? "Hisob"
+              : lang == "qr"
+              ? "Esap"
+              : lang == "en" && "Bill"}
           </button>
         </div>
       )}
