@@ -55,6 +55,29 @@ section {
 }
 
 
-#root{
+#root {
   position: relative;
+}
+
+section .container {
+  position: relative;
+}
+
+.scrollTop {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+}
+
+.scrollTop button {
+  padding: 13px;
+  color: white;
+  font-weight: 600;
+  background-color: #8039FD;
+  border: none;
+  border-radius: 9px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
