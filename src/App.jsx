@@ -15,8 +15,6 @@ export default function App() {
       "client",
       client.slice(client.indexOf("scan/") + 5, client.length)
     );
-  } else {
-    localStorage.setItem("client", "not");
   }
   React.useEffect(() => {
     dispatch(checkAuth());
