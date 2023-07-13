@@ -5,9 +5,7 @@ import { getCategory } from "../../store/productsSlice";
 import "./home.css";
 import React from "react";
 export default function Home() {
-  const { token } = useSelector((state) => state.tokenSlice);
-
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
   const { category } = useSelector((state) => state.productsSlice);
   React.useEffect(() => {
     dispatch(getCategory());

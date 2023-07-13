@@ -10,8 +10,8 @@ export default function App() {
   const navigate = useNavigate();
   const client = window.location.href;
   const dispatch = useDispatch();
-  if (client.includes("scan")) {
-    localStorage.setItem(
+  if (client.includes("scan/")) {
+    sessionStorage.setItem(
       "client",
       client.slice(client.indexOf("scan/") + 5, client.length)
     );

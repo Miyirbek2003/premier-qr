@@ -1,9 +1,10 @@
 import "./header.css";
 import { FaAngleDown } from "react-icons/fa";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLangg } from "../../store/productsSlice";
 export default function Header() {
+  const { lang: langg } = useSelector((state) => state.productsSlice);
   const [lang, setLang] = React.useState(
     localStorage.getItem("lang") === "uz"
       ? "O`zbek"

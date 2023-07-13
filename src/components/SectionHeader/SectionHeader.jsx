@@ -4,19 +4,23 @@ import check from "../../assets/check.svg";
 import wifi from "../../assets/wifi.svg";
 import phone from "../../assets/phone.svg";
 import map from "../../assets/map.svg";
+import { checkAuth } from "../../store/productsSlice";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "../Modal/Modal";
 import React from "react";
 export default function SectionHeader() {
   const { isAuth, lang } = useSelector((state) => state.productsSlice);
-
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = React.useState(false);
   if (modalOpen) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "auto";
   }
+  React.useEffect(() => {
+    dispatch(checkAuth());
+  }, []);
   return (
     <div className="section-header">
       {modalOpen && <Modal />}
@@ -25,11 +29,11 @@ export default function SectionHeader() {
         <div className="buttons">
           <button
             onClick={() => {
-              fetch("https://qrmenu.dbc-server.uz/api/call?type=waiter", {
+              fetch("http://qr-menu.premierlounge.uz/api/call?type=waiter", {
                 method: "POST",
                 headers: {
                   Accept: "application/json",
-                  uuid: localStorage.getItem("client"),
+                  uuid: sessionStorage.getItem("client"),
                 },
                 params: {
                   type: "waiter",
@@ -43,21 +47,21 @@ export default function SectionHeader() {
           >
             {" "}
             <img src={off} alt="" />{" "}
-            {lang == "ru"
+            {localStorage.getItem("lang") == "ru"
               ? "Официант"
-              : lang == "uz"
+              : localStorage.getItem("lang") == "uz"
               ? "Ofisiant"
-              : lang == "qr"
+              : localStorage.getItem("lang") == "qr"
               ? "Oficiant"
-              : lang == "en" && "Waiter"}
+              : localStorage.getItem("lang") == "en" && "Waiter"}
           </button>
           <button
             onClick={() => {
-              fetch("https://qrmenu.dbc-server.uz/api/call?type=bill", {
+              fetch("http://qr-menu.premierlounge.uz/api/call?type=bill", {
                 method: "POST",
                 headers: {
                   Accept: "application/json",
-                  uuid: localStorage.getItem("client"),
+                  uuid: sessionStorage.getItem("client"),
                 },
                 params: {
                   type: "bill",
@@ -71,13 +75,13 @@ export default function SectionHeader() {
           >
             {" "}
             <img src={check} alt="" />{" "}
-            {lang == "ru"
+            {localStorage.getItem("lang") == "ru"
               ? "Счет"
-              : lang == "uz"
+              : localStorage.getItem("lang") == "uz"
               ? "Hisob"
-              : lang == "qr"
+              : localStorage.getItem("lang") == "qr"
               ? "Esap"
-              : lang == "en" && "Bill"}
+              : localStorage.getItem("lang") == "en" && "Bill"}
           </button>
         </div>
       )}
@@ -85,17 +89,24 @@ export default function SectionHeader() {
         <div className="infos-top">
           <span>
             <img src={wifi} alt="" />
-            Wifi_parolwifi
+            Wifi : 123456
           </span>
           <span>
             <img src={phone} alt="" />
-            +998 90 010-85-10
+            <a href="tel:+998976503663">+998976503663</a>
           </span>
         </div>
         <div className="infos-btm">
           <span>
             <img src={map} alt="" />
-            Tashkent, Uzbekistan, Taras Shevchenko, 2{" "}
+            {localStorage.getItem("lang") == "ru"
+              ? "г.Нукус  Жолмурза Аймурзаев б/н, MixMarket"
+              : localStorage.getItem("lang") == "uz"
+              ? "Nukus, Jolmurza Aymurzaev r/u , MixMarket"
+              : localStorage.getItem("lang") == "qr"
+              ? "Nókis, Jolmurza Aymurzaev n/ú, MixMarket "
+              : localStorage.getItem("lang") == "en" &&
+                "Nukus, Jolmurza Aymurzaev street , MixMartket"}
           </span>
         </div>
       </div>

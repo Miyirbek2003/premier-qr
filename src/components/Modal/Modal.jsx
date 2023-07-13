@@ -23,7 +23,6 @@ export default function Modal() {
             />
           </svg>
         </div>
-        <h2>Tez arada sizge xabarlasamiz</h2>
       </div>
     </div>
   );
