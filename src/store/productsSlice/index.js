@@ -4,9 +4,9 @@ import axios from 'axios'
 
 
 export const getProducts = createAsyncThunk('productsSlice/getProducts', async (_, { dispatch }) => {
-    const response = await axios.get('https://qrmenu.dbc-server.uz/api/products', {
+    const response = await axios.get('http://qr-menu.premierlounge.uz/api/products', {
         headers: {
-            'Accept-Language': 'ru'
+            'Accept-Language': localStorage.getItem('lang')
         }
     })
     dispatch(setProducts(response.data.data))
@@ -15,7 +15,7 @@ export const getProducts = createAsyncThunk('productsSlice/getProducts', async (
 
 
 export const getCategory = createAsyncThunk('productsSlice/getCategory', async (_, { dispatch }) => {
-    const response = await axios.get('https://qrmenu.dbc-server.uz/api/categories', {
+    const response = await axios.get('http://qr-menu.premierlounge.uz/api/categories', {
         headers: {
             'Accept': 'application/json',
             'Accept-Language': `${localStorage.getItem('lang')}`
@@ -28,13 +28,13 @@ export const getCategory = createAsyncThunk('productsSlice/getCategory', async (
 
 export const checkAuth = createAsyncThunk('productsSlice/checkAuth', async (_, { rejectWithValue, dispatch }) => {
 
-    const response = await axios.post(`https://qrmenu.dbc-server.uz/api/verify?uuid=${localStorage.getItem('client')}`, {
+    const response = await axios.post(`http://qr-menu.premierlounge.uz/api/verify?uuid=${sessionStorage.getItem('client')}`, {
         headers: {
             'Accept': 'application/json',
             'Accept-Language': `${localStorage.getItem('lang')}`
         },
         params: {
-            'uuid': localStorage.getItem('client')
+            'uuid': sessionStorage.getItem('client')
         }
     })
     if (response.status === 200) {
@@ -44,7 +44,6 @@ export const checkAuth = createAsyncThunk('productsSlice/checkAuth', async (_, {
     if (response.status === 404) {
         dispatch(setIsAuth(error.response.data.status))
     }
-
 })
 
 
