@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 export const getProducts = createAsyncThunk('productsSlice/getProducts', async (_, { dispatch }) => {
-    const response = await axios.get('http://qr-menu.premierlounge.uz/api/products', {
+    const response = await axios.get('https://qr-menu.premierlounge.uz/api/products', {
         headers: {
             'Accept-Language': localStorage.getItem('lang')
         }
@@ -15,7 +15,7 @@ export const getProducts = createAsyncThunk('productsSlice/getProducts', async (
 
 
 export const getCategory = createAsyncThunk('productsSlice/getCategory', async (_, { dispatch }) => {
-    const response = await axios.get('http://qr-menu.premierlounge.uz/api/categories', {
+    const response = await axios.get('https://qr-menu.premierlounge.uz/api/categories', {
         headers: {
             'Accept': 'application/json',
             'Accept-Language': `${localStorage.getItem('lang')}`
@@ -28,7 +28,7 @@ export const getCategory = createAsyncThunk('productsSlice/getCategory', async (
 
 export const checkAuth = createAsyncThunk('productsSlice/checkAuth', async (_, { rejectWithValue, dispatch }) => {
 
-    const response = await axios.post(`http://qr-menu.premierlounge.uz/api/verify?uuid=${sessionStorage.getItem('client')}`, {
+    const response = await axios.post(`https://qr-menu.premierlounge.uz/api/verify?uuid=${sessionStorage.getItem('client')}`, {
         headers: {
             'Accept': 'application/json',
             'Accept-Language': `${localStorage.getItem('lang')}`
@@ -56,7 +56,7 @@ const initialState = {
     category: [],
     products: [],
     product: [],
-    lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : localStorage.setItem('lang', 'qr'),
+    lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : localStorage.setItem('lang', 'ru'),
     isAuth: ''
 }
 

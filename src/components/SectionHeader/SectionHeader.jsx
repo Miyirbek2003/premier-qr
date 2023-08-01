@@ -29,7 +29,7 @@ export default function SectionHeader() {
         <div className="buttons">
           <button
             onClick={() => {
-              fetch("http://qr-menu.premierlounge.uz/api/call?type=waiter", {
+              fetch("https://qr-menu.premierlounge.uz/api/call?type=waiter", {
                 method: "POST",
                 headers: {
                   Accept: "application/json",
@@ -57,7 +57,7 @@ export default function SectionHeader() {
           </button>
           <button
             onClick={() => {
-              fetch("http://qr-menu.premierlounge.uz/api/call?type=bill", {
+              fetch("https://qr-menu.premierlounge.uz/api/call?type=bill", {
                 method: "POST",
                 headers: {
                   Accept: "application/json",

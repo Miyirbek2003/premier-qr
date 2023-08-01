@@ -3,8 +3,12 @@ import { FaAngleDown } from "react-icons/fa";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLangg } from "../../store/productsSlice";
+import { useParams, useNavigate } from "react-router-dom";
+import { MdKeyboardBackspace } from "react-icons/md";
 export default function Header() {
   const { lang: langg } = useSelector((state) => state.productsSlice);
+  const { type } = useParams();
+  const navigate = useNavigate();
   const [lang, setLang] = React.useState(
     localStorage.getItem("lang") === "uz"
       ? "O`zbek"
@@ -18,6 +22,13 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container">
+        {type && (
+          <div className="homeP lang">
+            <button onClick={() => navigate("/")}>
+              <MdKeyboardBackspace size={20} /> Главная страница
+            </button>
+          </div>
+        )}
         <div className="lang">
           <button
             onClick={() => {

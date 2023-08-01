@@ -10,6 +10,24 @@
     height: 200px;
 }
 
+.homeP {
+    position: absolute;
+    bottom: 37px;
+    left: 24px;
+}
+.homeP{
+    width: 170px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.homeP button{
+    text-align: justify;
+    width: 100% !important;
+    display: flex;
+    justify-content: left !important;
+}
+
 .lang {
     position: absolute;
     bottom: 37px;

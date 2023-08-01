@@ -26,6 +26,7 @@
     font-size: 17px;
     line-height: 30px;
     color: #8039FD;
+    white-space: nowrap;
 }
 
 .price span {
@@ -62,17 +63,20 @@
 }
 
 .category-item .img {
-    height: 180px;
+    height: 270px;
     overflow: hidden;
     position: relative;
     border-radius: 7px;
     margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .category-item .img img {
     object-fit: cover;
     position: absolute;
     width: 100%;
-    image-rendering: pixelated;
     height: 100%;
-}
+    image-rendering: pixelated;
+}   
