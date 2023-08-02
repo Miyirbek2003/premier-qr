@@ -7,12 +7,22 @@ export default function HomeB({ category }) {
     <section className="homeb">
       <div className="btm"></div>
       <div className="home-body-inner">
-        {category?.map((cat) => (
+        {category?.map((cat, index) => (
           <Link
             key={cat.id}
             to={`/category/${cat.id}`}
             className="category"
-            style={{ backgroundImage: `url(${cat.img_url})` }}
+            style={
+              index >= 10
+                ? {
+                    backgroundImage: `url(${cat.img_url})`,
+                    backgroundSize: 'contain',
+                    backgroundColor: "white",
+                  }
+                : {
+                    backgroundImage: `url(${cat.img_url})`,
+                  }
+            }
           >
             <h2>
               {

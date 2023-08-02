@@ -7,7 +7,7 @@ import "./categoryb.css";
 
 export default function CategoryB({ products }) {
   const { type } = useParams();
-  const { lang } = useSelector((state) => state.productsSlice);
+  const lang = localStorage.getItem("lang");
 
   return (
     <div className="categoryb">
@@ -15,6 +15,7 @@ export default function CategoryB({ products }) {
       <div className="category-card">
         {products
           ?.filter((item) => item.category_id == type)
+          .sort((a, b) => parseFloat(a.price) - parseFloat(b.price))
           .map((pr) => (
             <div key={pr.id} className="category-item">
               <div className="img">

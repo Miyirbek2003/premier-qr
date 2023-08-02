@@ -31,6 +31,7 @@
 
 .home-body-inner a{
     position: relative;
+    background-color: white;
 }
 .home-body-inner>a::after {
     content: '';

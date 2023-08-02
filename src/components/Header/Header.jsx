@@ -22,13 +22,6 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container">
-        {type && (
-          <div className="homeP lang">
-            <button onClick={() => navigate("/")}>
-              <MdKeyboardBackspace size={20} /> Главная страница
-            </button>
-          </div>
-        )}
         <div className="lang">
           <button
             onClick={() => {

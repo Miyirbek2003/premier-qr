@@ -69,6 +69,11 @@ section .container {
   bottom: 25px;
 }
 
+.scrollTop.back {
+  position: fixed;
+  right: 25px;
+  bottom: 85px;
+}
 .scrollTop button {
   padding: 13px;
   color: white;
