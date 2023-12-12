@@ -93,7 +93,7 @@ export default function SectionHeader() {
           </span>
           <span>
             <img src={phone} alt="" />
-            <a href="tel:+998976503663">+998976503663</a>
+            <a href="tel:+998973587007">+998973587007</a>
           </span>
         </div>
         <div className="infos-btm">

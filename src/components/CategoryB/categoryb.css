@@ -41,7 +41,8 @@
 .category-title {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 7px;
+    align-items: baseline;
+    gap: 3px;
 }
 
 .category-title h2 {

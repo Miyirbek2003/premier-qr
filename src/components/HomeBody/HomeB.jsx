@@ -1,6 +1,7 @@
 import "./homeb.css";
 import { Link, useParams } from "react-router-dom";
 import React from "react";
+import { AiOutlineArrowUp } from "react-icons/ai";
 export default function HomeB({ category }) {
   const { id } = useParams();
   return (
@@ -16,7 +17,7 @@ export default function HomeB({ category }) {
               index >= 10
                 ? {
                     backgroundImage: `url(${cat.img_url})`,
-                    backgroundSize: 'contain',
+                    backgroundSize: "contain",
                     backgroundColor: "white",
                   }
                 : {
@@ -33,6 +34,18 @@ export default function HomeB({ category }) {
             </h2>
           </Link>
         ))}
+      </div>
+      <div className="scrollTop">
+        <button
+          onClick={() => {
+            window.scroll({
+              left: 0,
+              top: 0,
+            });
+          }}
+        >
+          <AiOutlineArrowUp />
+        </button>
       </div>
     </section>
   );

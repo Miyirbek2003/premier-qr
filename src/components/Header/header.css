@@ -71,7 +71,10 @@
     min-width: 131px;
     width: 100%;
 }
-
+.logo{
+    position: absolute;
+    
+}
 .lang .drop {
     position: absolute;
     background-color: #8039FD;
